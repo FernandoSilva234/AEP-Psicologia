@@ -111,6 +111,46 @@
     .pdf-mode .actions{display:none!important}
     .pdf-mode #confetti{display:none!important}
   </style>
+  <!-- Responsividade extra para header e cartões (mobile fixes) -->
+  <style>
+    /* Responsividade extra para header e cartões (mobile fixes) */
+    header.site{flex-wrap:wrap;align-items:center}
+    .brand{flex:1;min-width:0;display:flex;gap:12px;align-items:center}
+    .brand > div{min-width:0} /* permite que textos quebrem e evitem overflow */
+    .title{white-space:normal;overflow-wrap:break-word}
+
+    /* Permitir que ações quebrem quando necessário */
+    .actions{display:flex;gap:8px;flex-wrap:wrap}
+    header.site .actions{flex-wrap:wrap;justify-content:flex-end}
+
+    /* Quando a largura ficar pequena, empilha header para não empurrar botões */
+    @media (max-width:640px){
+      header.site{flex-direction:column;align-items:stretch;gap:8px;padding:12px}
+      .brand{width:100%;gap:10px}
+      .brand img.uni-logo{width:clamp(120px,30vw,200px);height:auto}
+      .actions{justify-content:flex-end}
+      /* reduz margem do título para caber melhor */
+      .title{font-size:1.05rem}
+    }
+
+    /* Evita overflow horizontal em cartões dentro de grids (compatibilidade entre navegadores) */
+    .grid.cols-2 > .card, .grid > .card, .card{min-width:0;box-sizing:border-box}
+
+    /* Ajustes para o anel/timer na área de hábitos (não permitir que estique o layout) */
+    .ring{--size:clamp(90px,28vw,140px);width:var(--size);height:var(--size)}
+
+    /* Botões e espaçamentos menores em telas muito pequenas */
+    @media (max-width:420px){
+      .btn{padding:7px 10px;font-size:0.95rem;border-radius:10px}
+      .uni-logo{width:140px;height:auto}
+      .breath{font-size:clamp(32px,6.5vw,52px)}
+      /* reduz gap entre itens no card de meta para evitar empurrar o ring */
+      #habitos .card > div[style*="display:flex"]{gap:8px}
+    }
+
+    /* Pequeno ajuste para evitar que imagens SVG/PNG excedam o container */
+    img, svg{max-width:100%;height:auto;display:block}
+  </style>
   <!-- Lottie player para animações leves -->
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <!-- html2pdf para gerar PDF local a partir do HTML -->
