@@ -148,6 +148,11 @@
       #habitos .card > div[style*="display:flex"]{gap:8px}
     }
 
+    /* Corrige grid de Hábitos em telas pequenas: empilha em 1 coluna */
+    @media (max-width:720px){
+      #habitos .grid.cols-2{grid-template-columns:1fr}
+    }
+
     /* Pequeno ajuste para evitar que imagens SVG/PNG excedam o container */
     img, svg{max-width:100%;height:auto;display:block}
   </style>
@@ -449,9 +454,9 @@
       return null;
     }
     // URLs definitivas (GitHub Pages)
-    const PUBLIC_URL = 'https://fernandosilva234.github.io/Laizinha/';
-    const PDF_URL = 'https://fernandosilva234.github.io/Laizinha/cartilha-viva.pdf';
-    const LOGO_URL = 'https://raw.githubusercontent.com/FernandoSilva234/Laizinha/Style/UNICESUMAR.jpg';
+    const PUBLIC_URL = 'https://fernandosilva234.github.io/AEP-Psicologia/';
+    const PDF_URL = 'https://fernandosilva234.github.io/AEP-Psicologia/cartilha-viva.pdf';
+    const LOGO_URL = 'https://raw.githubusercontent.com/FernandoSilva234/AEP-Psicologia/Style/UNICESUMAR.jpg';
 
     function setQR(){
       // Página pública e PDF direto hospedados no GitHub Pages
